@@ -1,23 +1,22 @@
 #include<stdio.h>
-#include<stdlib.h>
 int main()
 {
-    int a,b,x,y,s,t1,t2;
-    scanf("%d %d %d %d",&a,&b,&x,&y);
-    s=abs(b-a);
-    t1=abs(a-x)+abs(b-y);
-    t2=abs(a-y)+abs(b-x);
-    if(s<=t1 && s<=t2)
+    int m,n,i,x,y,a[10000],b[10]={0};
+    scanf("%d %d",&m,&n);
+    for(i=m;i<=n;i++)
     {
-        printf("%d\n",s);
+        a[i]=i;
+        while(a[i]!=0)
+        {
+            x=a[i]%10;
+            b[x]++;
+            a[i]=a[i]/10;
+        }
     }
-    else if(t1<=s && t1<=t2)
+    for(int j=0;j<10;j++)
     {
-        printf("%d\n",t1);
+        printf("%d ",b[j]);
     }
-    else
-    {
-        printf("%d\n",t2);
-    }
+    printf("\n");
     return 0;
 }
